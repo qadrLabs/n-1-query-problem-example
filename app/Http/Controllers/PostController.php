@@ -9,7 +9,11 @@ class PostController extends Controller
 {
     public function index()
     {
-
+        $posts = Post::all();
+//        $posts = Post::with('category')->get();
+        foreach ($posts as $post) {
+            echo $post->title . ' - ' .$post->category->name . '<br/>';
+        }
     }
 
     public function create()
